@@ -38,12 +38,15 @@ pipeline {
     }
 }
 def updateGitHubStatus(String status) {
-    def prUrl = "https://api.github.com/repos/pacots/PROF-Jenkins-Exercise-1/statuses/${env.GIT_COMMIT}"
-    def data = """
+    
+    withCredentials([string(credentialsId: 'wekhook', variable: 'GITHUB_TOKEN')]) {
+        def prUrl = "https://api.github.com/repos/pacots/PROF-Jenkins-Exercise-1/statuses/${env.GIT_COMMIT}"
+        def data = """
         {
             "state": "${status}",
-            "context": "ci/jenkins"
+            "context": "Jenkins CI"
         }
         """
-    sh "curl -X POST -H 'Authorization: token ${GITHUB_TOKEN}' -d '${data}' ${prUrl}"
+        sh "curl -X POST -H 'Authorization: token ${GITHUB_TOKEN}' -d '${data}' ${prUrl}"
+    }
 }
