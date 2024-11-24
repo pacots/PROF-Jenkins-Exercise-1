@@ -39,7 +39,7 @@ pipeline {
 }
 def updateGitHubStatus(String status) {
     
-    withCredentials([string(credentialsId: 'wekhook', variable: 'GITHUB_TOKEN')]) {
+    withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')]) {
         def prUrl = "https://api.github.com/repos/pacots/PROF-Jenkins-Exercise-1/statuses/${env.GIT_COMMIT}"
         def data = """
         {
