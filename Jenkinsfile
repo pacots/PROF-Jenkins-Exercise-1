@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        gradle 'gradle-latest'
+    }
     environment {
         GITHUB_TOKEN = credentials('github-token')
     }
