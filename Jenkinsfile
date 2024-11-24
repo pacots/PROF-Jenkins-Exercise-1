@@ -37,7 +37,6 @@ pipeline {
         }
     }
 }
-
 def updateGitHubStatus(String status) {
     def prUrl = "https://api.github.com/repos/pacots/PROF-Jenkins-Exercise-1/statuses/${env.GIT_COMMIT}"
     def data = """
