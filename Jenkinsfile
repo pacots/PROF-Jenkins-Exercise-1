@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/pacots/PROF-Jenkins-Exercise-1.git'
+                checkout scm
             }
         }
         stage('Build') {
