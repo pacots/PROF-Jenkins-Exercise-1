@@ -38,7 +38,7 @@ pipeline {
 }
 
 def updateGitHubStatus(String status) {
-    def prUrl = "https://api.github.com/repos/pacots/PROF-Jenkins-Exercise-1/statuses/$%7Benv.GIT_COMMIT%7D"
+    def prUrl = "https://api.github.com/repos/pacots/PROF-Jenkins-Exercise-1/statuses/${env.GIT_COMMIT}"
     def data = """
         {
             "state": "${status}",
