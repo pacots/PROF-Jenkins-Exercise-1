@@ -29,6 +29,7 @@ pipeline {
                 updateGitHubStatus(prStatus)
             }
         }
+        
         failure {
             script {
                 def prStatus = 'failure'
