@@ -10,7 +10,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Build')  {
             steps {
                 sh 'chmod +x ./gradlew'
                 sh './gradlew build'
