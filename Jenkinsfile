@@ -4,13 +4,13 @@ pipeline {
     environment {
         GITHUB_TOKEN = credentials('github-token')
     }
-    stages {
-        stage('Checkout') {
+    stages {  
+        stage('Checkout')   {
             steps {
                 checkout scm
-            }
+            }  
         }
-        stage('Build')  {
+        stage('Build') {
             steps {
                 sh 'chmod +x ./gradlew'
                 sh './gradlew build'
