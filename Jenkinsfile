@@ -5,7 +5,7 @@ pipeline {
         GITHUB_TOKEN = credentials('github-token')
     }
     stages {  
-        stage('Checkout')   {
+        stage('Checkout') {
             steps {
                 checkout scm
             }  
